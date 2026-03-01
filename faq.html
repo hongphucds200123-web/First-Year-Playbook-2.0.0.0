@@ -1,0 +1,119 @@
+<!doctype html><html lang="vi"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>FIRST YEAR PLAYBOOK • FAQ</title>
+<style>
+:root{--o:#f97316;--line:#ffe2cc;--muted:#64748b;--soft:#fff7ed;--shadow:0 10px 30px rgba(2,6,23,.06);--r:18px}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial;background:#fff;color:#0f172a}
+.top{position:sticky;top:0;background:rgba(255,255,255,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);z-index:9}
+.wrap{max-width:1100px;margin:0 auto;padding:14px 16px}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:space-between}
+.brand{display:flex;gap:12px;align-items:center}.logo{width:40px;height:40px;border-radius:14px;background:var(--o)}
+h1{margin:0;font-size:14px;font-weight:900}.muted{color:var(--muted);font-size:13px;line-height:1.6}
+.btn{border:1px solid var(--line);background:#fff;padding:10px 12px;border-radius:14px;cursor:pointer;font-weight:800;font-size:12px}
+.btn.soft{background:var(--soft);color:#9a3412}
+.card{border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);background:#fff}
+.card .bd{padding:16px}.grid{display:grid;gap:12px}
+a{color:var(--o);text-decoration:none}a:hover{text-decoration:underline}
+nav{display:flex;gap:8px;flex-wrap:wrap}
+nav a{border:1px solid var(--line);padding:8px 10px;border-radius:999px;background:var(--soft);font-weight:800;font-size:12px}
+.qa{border:1px solid var(--line);border-radius:14px;background:#fff;padding:14px}
+.qa b{display:block}
+hr{border:none;border-top:1px solid var(--line);margin:12px 0}
+</style></head><body>
+<div class="top"><div class="wrap row">
+  <div class="brand"><div class="logo"></div><div>
+    <h1 id="brand">FIRST YEAR PLAYBOOK</h1><div class="muted" id="tagline"></div>
+  </div></div>
+  <div class="row">
+    <button class="btn" id="langBtn">VI</button>
+    <nav>
+      <a href="index.html" target="_blank">Home</a>
+      <a href="first30.html" target="_blank">First 30 Days</a>
+      <a href="roadmap.html" target="_blank">Roadmap</a>
+      <a href="study.html" target="_blank">Study</a>
+      <a href="resources.html" target="_blank">Resources</a>
+      <a href="templates.html" target="_blank">Templates</a>
+      <a href="faq.html" target="_blank">FAQ</a>
+    </nav>
+  </div>
+</div></div>
+
+<div class="wrap">
+  <div class="card"><div class="bd">
+    <div class="muted" style="font-weight:900;color:#9a3412" id="kicker">FAQ</div>
+    <div style="font-size:26px;font-weight:900;line-height:1.15;margin:10px 0" id="title"></div>
+    <div class="muted" id="sub"></div>
+
+    <div class="grid" style="margin-top:12px" id="qas"></div>
+
+    <div class="card" style="box-shadow:none;background:#fff7ed80;margin-top:12px">
+      <div class="bd">
+        <b style="color:#9a3412" id="tipK"></b>
+        <span class="muted" id="tip"></span>
+      </div>
+    </div>
+
+    <div class="muted" style="margin-top:18px;border-top:1px solid var(--line);padding-top:12px">
+      © <span id="y"></span> FIRST YEAR PLAYBOOK
+    </div>
+  </div></div>
+</div>
+
+<script>
+const LS={lang:"fyp_lang_mp"};
+let lang=localStorage.getItem(LS.lang)||"vi";
+const $=id=>document.getElementById(id);
+
+const T={
+ vi:{
+  tagline:"Multi-page • mỗi mục mở tab mới • trắng/cam",
+  title:"Những câu hỏi ai cũng dính — mình gom sẵn để bạn đỡ bơi.",
+  sub:"Nếu có thay đổi theo từng kỳ, ưu tiên thông báo trên FAP/MyFAP và hướng dẫn chính thức.",
+  qas:[
+    ["Điều kiện dự thi là gì?","Thường cần chuyên cần tối thiểu (hay gặp là 80%). Ngoài ra phải hoàn thành các bài bắt buộc theo syllabus."],
+    ["Thi đến muộn có sao không?","Có thể bị từ chối vào phòng thi tuỳ quy định. An toàn nhất: đến sớm 15–30 phút."],
+    ["Phúc tra vs thi cải thiện?","Phúc tra: kiểm tra lại điểm. Thi cải thiện: thi lại để nâng điểm, có rủi ro thay thế điểm cũ."],
+    ["EOS/PEA lỗi trước thi?","Cập nhật trước ngày thi, thử đăng nhập. Nếu lỗi: báo giám thị + liên hệ khảo thí/DVSV."],
+    ["Nhóm làm bài trễ tiến độ?","Chia nhỏ task, đặt deadline phụ, ai không làm thì ghi rõ trong log và báo mentor/giảng viên đúng cách."]
+  ],
+  tipK:"Survival tip: ",
+  tip:"Khi mơ hồ, đừng đoán. Mở FLM để chốt trọng số & yêu cầu, rồi mở FAP để chốt lịch và thủ tục."
+ },
+ en:{
+  tagline:"Multi-page • each menu opens a new tab • white/orange",
+  title:"Common first-year questions—answered so you can focus on studying.",
+  sub:"If policies change by term, prioritize official announcements on FAP/MyFAP and formal guidance.",
+  qas:[
+    ["What are exam eligibility conditions?","Attendance minimum is common (often 80%). You must also finish mandatory tasks per syllabus."],
+    ["What if I’m late for an exam?","You may be denied entry depending on rules. Safest: arrive 15–30 minutes early."],
+    ["Recheck vs score improvement?","Recheck reviews grading. Improvement is retaking to raise score and may replace your old score."],
+    ["EOS/PEA fails before the exam?","Update early, test login. If it fails: tell the invigilator + contact the testing office/student services."],
+    ["Group work is behind schedule?","Split tasks, set mini-deadlines, document contributions, and escalate properly if needed."]
+  ],
+  tipK:"Survival tip: ",
+  tip:"When unsure, don’t guess. Check FLM for weights/requirements, then check FAP for schedule and procedures."
+ }
+};
+
+function render(){
+  const t=T[lang];
+  $("langBtn").textContent=lang==="vi"?"VI":"EN";
+  $("tagline").textContent=t.tagline;
+  $("title").textContent=t.title;
+  $("sub").textContent=t.sub;
+  $("tipK").textContent=t.tipK;
+  $("tip").textContent=t.tip;
+
+  const box=$("qas"); box.innerHTML="";
+  t.qas.forEach(x=>{
+    const div=document.createElement("div");
+    div.className="qa";
+    div.innerHTML=`<b>${x[0]}</b><div class="muted" style="margin-top:6px">${x[1]}</div>`;
+    box.appendChild(div);
+  });
+}
+$("langBtn").onclick=()=>{lang=(lang==="vi"?"en":"vi");localStorage.setItem(LS.lang,lang);render();};
+$("y").textContent=new Date().getFullYear();
+render();
+</script>
+</body></html>
