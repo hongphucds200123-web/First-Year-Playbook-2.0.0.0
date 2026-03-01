@@ -1,0 +1,175 @@
+<!doctype html><html lang="vi"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>FIRST YEAR PLAYBOOK • Templates</title>
+<style>
+:root{--o:#f97316;--line:#ffe2cc;--muted:#64748b;--soft:#fff7ed;--shadow:0 10px 30px rgba(2,6,23,.06);--r:18px}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial;background:#fff;color:#0f172a}
+.top{position:sticky;top:0;background:rgba(255,255,255,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);z-index:9}
+.wrap{max-width:1100px;margin:0 auto;padding:14px 16px}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:space-between}
+.brand{display:flex;gap:12px;align-items:center}.logo{width:40px;height:40px;border-radius:14px;background:var(--o)}
+h1{margin:0;font-size:14px;font-weight:900}.muted{color:var(--muted);font-size:13px;line-height:1.6}
+.btn{border:1px solid var(--line);background:#fff;padding:10px 12px;border-radius:14px;cursor:pointer;font-weight:800;font-size:12px}
+.btn.primary{background:var(--o);color:#fff;border-color:transparent}.btn.soft{background:var(--soft);color:#9a3412}
+.card{border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);background:#fff}
+.card .bd{padding:16px}.grid{display:grid;gap:12px}
+@media(min-width:900px){.grid2{grid-template-columns:1fr 1fr}}
+a{color:var(--o);text-decoration:none}a:hover{text-decoration:underline}
+nav{display:flex;gap:8px;flex-wrap:wrap}
+nav a{border:1px solid var(--line);padding:8px 10px;border-radius:999px;background:var(--soft);font-weight:800;font-size:12px}
+.small{font-size:12px;color:var(--muted)}
+input{width:100%;border:1px solid var(--line);border-radius:14px;padding:10px 12px;font-size:13px;outline:none}
+input:focus{border-color:#fdba74}
+</style></head><body>
+<div class="top"><div class="wrap row">
+  <div class="brand"><div class="logo"></div><div>
+    <h1 id="brand">FIRST YEAR PLAYBOOK</h1><div class="muted" id="tagline"></div>
+  </div></div>
+  <div class="row">
+    <button class="btn" id="langBtn">VI</button>
+    <nav>
+      <a href="index.html" target="_blank">Home</a>
+      <a href="first30.html" target="_blank">First 30 Days</a>
+      <a href="roadmap.html" target="_blank">Roadmap</a>
+      <a href="study.html" target="_blank">Study</a>
+      <a href="resources.html" target="_blank">Resources</a>
+      <a href="templates.html" target="_blank">Templates</a>
+      <a href="faq.html" target="_blank">FAQ</a>
+    </nav>
+  </div>
+</div></div>
+
+<div class="wrap">
+  <div class="card"><div class="bd">
+    <div class="muted" style="font-weight:900;color:#9a3412" id="kicker">TEMPLATES</div>
+    <div style="font-size:26px;font-weight:900;line-height:1.15;margin:10px 0" id="title"></div>
+    <div class="muted" id="sub"></div>
+
+    <div class="card" style="box-shadow:none;background:#fff7ed80;margin-top:12px">
+      <div class="bd">
+        <b style="color:#9a3412" id="howK"></b>
+        <div class="muted" id="how"></div>
+      </div>
+    </div>
+
+    <div class="grid grid2" style="margin-top:12px" id="list"></div>
+
+    <div class="card" style="box-shadow:none;margin-top:12px">
+      <div class="bd">
+        <b id="saveK"></b>
+        <div class="muted" id="saveSub"></div>
+        <div style="margin-top:10px" class="grid grid2">
+          <div>
+            <div class="small" id="driveLbl"></div>
+            <input id="drive" placeholder="https://drive.google.com/..." />
+          </div>
+          <div>
+            <div class="small" id="notionLbl"></div>
+            <input id="notion" placeholder="https://www.notion.so/..." />
+          </div>
+        </div>
+        <div style="margin-top:10px" class="row" >
+          <button class="btn soft" id="saveBtn"></button>
+          <span class="small" id="savedHint"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="muted" style="margin-top:18px;border-top:1px solid var(--line);padding-top:12px">
+      © <span id="y"></span> FIRST YEAR PLAYBOOK
+    </div>
+  </div></div>
+</div>
+
+<script>
+const LS={lang:"fyp_lang_mp", links:"fyp_tpl_links"};
+let lang=localStorage.getItem(LS.lang)||"vi";
+let links=JSON.parse(localStorage.getItem(LS.links)||"{}");
+const $=id=>document.getElementById(id);
+
+const T={
+ vi:{
+  tagline:"Multi-page • mỗi mục mở tab mới • trắng/cam",
+  title:"Template để bạn bớt nghĩ — và làm nhiều hơn.",
+  sub:"Bạn có thể gắn link Drive/Notion của riêng bạn để dùng lâu dài.",
+  howK:"Cách dùng:",
+  how:"Chọn 1 template → tạo bản copy trên Drive/Notion → dùng theo tuần. Không cần hoàn hảo, chỉ cần nhất quán.",
+  list:[
+    ["Weekly Study Plan","Kế hoạch tuần: môn – mục tiêu – deadline – trọng số – giờ học."],
+    ["Assignment Tracker","Theo dõi bài tập: trạng thái, nhóm, tài liệu, ngày nộp."],
+    ["Exam Sprint 7-day","7 ngày trước thi: syllabus → notes → đề → lỗi sai."],
+    ["Email to Support","MSSV - Họ tên - Vấn đề cần hỗ trợ (đính kèm ảnh nếu có)."]
+  ],
+  saveK:"Gắn link template của bạn",
+  saveSub:"Mình sẽ lưu link này trên trình duyệt của bạn (local).",
+  driveLbl:"Drive link (tùy chọn)",
+  notionLbl:"Notion link (tùy chọn)",
+  saveBtn:"Lưu link",
+  savedHint:""
+ },
+ en:{
+  tagline:"Multi-page • each menu opens a new tab • white/orange",
+  title:"Templates so you think less — and execute more.",
+  sub:"Attach your own Drive/Notion links for long-term use.",
+  howK:"How to use:",
+  how:"Pick a template → make a copy on Drive/Notion → run it weekly. Perfection is optional; consistency is not.",
+  list:[
+    ["Weekly Study Plan","Weekly plan: course – goal – deadline – weight – study hours."],
+    ["Assignment Tracker","Track tasks: status, group, resources, due date."],
+    ["Exam Sprint 7-day","7 days to exam: syllabus → notes → mocks → mistakes."],
+    ["Email to Support","StudentID - Full name - Issue (attach screenshots if any)."]
+  ],
+  saveK:"Attach your template links",
+  saveSub:"Saved locally in your browser.",
+  driveLbl:"Drive link (optional)",
+  notionLbl:"Notion link (optional)",
+  saveBtn:"Save links",
+  savedHint:""
+ }
+};
+
+function render(){
+  const t=T[lang];
+  $("langBtn").textContent=lang==="vi"?"VI":"EN";
+  $("tagline").textContent=t.tagline;
+  $("title").textContent=t.title;
+  $("sub").textContent=t.sub;
+  $("howK").textContent=t.howK;
+  $("how").textContent=t.how;
+  $("saveK").textContent=t.saveK;
+  $("saveSub").textContent=t.saveSub;
+  $("driveLbl").textContent=t.driveLbl;
+  $("notionLbl").textContent=t.notionLbl;
+  $("saveBtn").textContent=t.saveBtn;
+
+  $("drive").value=links.drive||"";
+  $("notion").value=links.notion||"";
+
+  $("list").innerHTML = t.list.map(x=>`
+    <div class="card" style="box-shadow:none">
+      <div class="bd">
+        <b>${x[0]}</b>
+        <div class="muted" style="margin-top:6px">${x[1]}</div>
+        <div style="margin-top:10px" class="row">
+          <button class="btn soft" onclick="alert('${lang==="vi"?"Bạn tạo bản copy rồi dán link vào ô phía dưới":"Create a copy then paste the link below"}')">Guide</button>
+          <button class="btn" onclick="alert('${lang==="vi"?"Bạn có thể gắn link download riêng cho từng template nếu muốn":"You can attach per-template download links if you want"}')">Download</button>
+        </div>
+      </div>
+    </div>
+  `).join("");
+
+  $("savedHint").textContent = (links.drive||links.notion) ? (lang==="vi"?"Đã lưu link.":"Links saved.") : "";
+}
+
+$("saveBtn").onclick=()=>{
+  links.drive=$("drive").value.trim();
+  links.notion=$("notion").value.trim();
+  localStorage.setItem(LS.links, JSON.stringify(links));
+  $("savedHint").textContent = (lang==="vi"?"Đã lưu!":"Saved!");
+};
+
+$("langBtn").onclick=()=>{lang=(lang==="vi"?"en":"vi");localStorage.setItem(LS.lang,lang);render();};
+$("y").textContent=new Date().getFullYear();
+render();
+</script>
+</body></html>
